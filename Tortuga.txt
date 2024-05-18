@@ -1,0 +1,36 @@
+import turtle
+
+win = turtle.Screen()
+
+win.bgcolor("red")
+win.setup(width=600, height=600)
+
+tortuga = turtle.Turtle()
+tortuga.shape("turtle")
+tortuga.color("red")
+tortuga.penup()
+tortuga.speed(0)
+tortuga.goto(0, 0)
+
+
+velocidad_x = 15
+velocidad_y = 15
+
+
+def mover():
+    global velocidad_x, velocidad_y
+    x = tortuga.xcor() + velocidad_x
+    y = tortuga.ycor() + velocidad_y
+    
+   
+    if x > 290 or x < -290:
+        velocidad_x *= -1
+    if y > 290 or y < -290:
+        velocidad_y *= -1
+    
+    tortuga.goto(x, y)
+
+
+while True:
+    mover()
+    win.update()
